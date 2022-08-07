@@ -7,13 +7,15 @@ sudo apt update
 sudo apt install nginx
 ```
 ![Sudo Apt Update, sudo apt install nginx](https://user-images.githubusercontent.com/107906178/183231623-59c00587-f15c-498f-b15a-7ab5b44e7b63.JPG)
+
+![sudo apt install nginx](https://user-images.githubusercontent.com/107906178/183231624-7177e09e-74d5-4018-879d-05725d57a31c.JPG)
 - Verify that nginx was successfully installed and is running as a service in Ubuntu. Output should be green coloured "running".
 ```
 sudo systemctl status nginx
 ```
-![sudo apt install nginx](https://user-images.githubusercontent.com/107906178/183231624-7177e09e-74d5-4018-879d-05725d57a31c.JPG)
-- Open TCP port 80 on the EC2 instance, which is default port that web brousers use to access web pages in the Internet.
 ![sudo systemctl status nginx](https://user-images.githubusercontent.com/107906178/183231626-c8bc707c-d164-454f-91ea-d3bc44664663.jpg)
+
+- Open TCP port 80 on the EC2 instance, which is default port that web browsers use to access web pages in the Internet.
 
 - Try to check that if can be accessed locally in the Ubuntu shell, run:
 ```
@@ -43,6 +45,7 @@ sudo mysql
 ```
 This will connect to the MySQL server as the administrative database user root, which is inferred by the use of sudo when running this command. Output shown below:
 ![sudo mysql](https://user-images.githubusercontent.com/107906178/183231630-b4ad1f52-c5ae-487f-95a0-6f87af0b23a7.JPG)
+
 It’s recommended that you run a security script that comes pre-installed with MySQL. This script will remove some insecure default settings and lock down access to your database system. Before running the script you will set a password for the root user, using mysql_native_password as default authentication method. Defining this user’s password as ** PassWord.1 **
 ```
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
@@ -159,8 +162,11 @@ sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/met
 http://<Public-IP-Address>:80
 ```
 ![NGinx index html Launch through IP address](https://user-images.githubusercontent.com/107906178/183231633-f676d8cd-ef5e-45d9-967b-aaa2ed76d010.JPG)
+
 You can also access your website in your browser by public DNS name:
+
 ![NGinx index html Launch through DNS](https://user-images.githubusercontent.com/107906178/183231634-920a4ebd-5179-47f3-bf88-8eaac4c8fc16.JPG)
+
 Your LEMP stack is now fully configured.
 
 You can leave this file in place as a temporary landing page for your application until you set up an index.php file to replace it. Once you do that, remember to remove or rename the index.html file from your document root, as it would take precedence over an index.php file by default.
